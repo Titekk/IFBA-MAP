@@ -12,7 +12,7 @@ USE banco_IFBA;
 CREATE TABLE bloco (
   codigo_bloco INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
-  descricao VARCHAR(255)
+  descricao VARCHAR(500)
 );
 
 CREATE TABLE sala (
@@ -21,7 +21,7 @@ CREATE TABLE sala (
   andar VARCHAR(30) DEFAULT 'Não identificável',
   tipo_uso VARCHAR(50) DEFAULT 'Não identificável',
   capacidade_pessoas VARCHAR(30) DEFAULT 'Não identificável',
-  area VARCHAR(30) DEFAULT 'Não identificável',
+  area double(30) DEFAULT 'Não identificável',
   situacao VARCHAR(30) DEFAULT 'Não identificável',
   codigo_bloco INT NOT NULL,
   FOREIGN KEY (codigo_bloco) REFERENCES bloco(codigo_bloco)
@@ -47,7 +47,7 @@ CREATE TABLE equipamento (
   capacidade_btu INT,
   consumo_kwh_mes DECIMAL(10,2),
   tipo_fluido VARCHAR(30) DEFAULT 'Não identificável',
-  tensao VARCHAR(20) DEFAULT 'Não identificável',
+  tensao_V VARCHAR(20) DEFAULT 'Não identificável',
   tecnologia VARCHAR(30) DEFAULT 'Não identificável',
   potencia VARCHAR(30) DEFAULT 'Não identificável',
   data_aquisicao DATE,
@@ -60,7 +60,7 @@ CREATE TABLE alocacao (
   codigo_alocacao INT PRIMARY KEY AUTO_INCREMENT,
   data_instalacao DATE,
   data_retirada DATE,
-  observacao VARCHAR(255) DEFAULT 'Não identificável',
+  observacao VARCHAR(300) DEFAULT 'Não identificável',
   codigo_sala INT NOT NULL,
   codigo_equipamento INT NOT NULL,
   FOREIGN KEY (codigo_sala) REFERENCES sala(codigo_sala) ON DELETE CASCADE,
@@ -71,7 +71,7 @@ CREATE TABLE usuario (
   codigo_usuario INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
-  senha VARCHAR(255) NOT NULL,
+  senha VARCHAR(200) NOT NULL,
   situacao VARCHAR(30) DEFAULT 'Ativo'
 );
 
@@ -110,11 +110,11 @@ CREATE TABLE manutencao (
 INSERT INTO bloco (codigo_bloco, nome, descricao) VALUES
 (1, '2º Pavilhão - 1º Andar', 'Salas de aula 15 a 22, banheiro, corredor e rampas superiores'),
 (2, '2º Pavilhão - Térreo & Laboratórios', 'Laboratórios de Edificações, Seg. Trabalho, LABOMEC, Ciências Ambientais, Topografia, Matemática, Desenho, Informática, Manutenção e Redes'),
-(3, 'Bloco Pedagógico Central', 'Salas de aula 01 a 10 e Laboratórios de Química, Física e Biologia'),
+(3, 'Bloco Sala Central', 'Salas de aula 01 a 10'),
 (4, 'Bloco Administrativo e Ensino Sul', 'Salas 11 a 14, Coordenações, CGTI, DAP, GGP, DOF, COTEP, Diretoria, Gabinete, CORES e DG'),
-(5, 'Bloco de Serviços e Convivência', 'Refeitório, Cozinha, Cantina, Depósito, Serviço Médico, Área de Serviço, Almoxarifado, Sala Adm e Parte Externa'),
+(5, 'Bloco de Serviços e Convivência', ' Depósito, Área de Serviço, Sala Adm e Parte Externa'),
 (6, 'Complexo Esportivo / Ginásio', 'Ginásio com Arquibancadas, Dojo, Sala de Dança, Academia, Vestiários, Banheiros, Coord. e Transp.'),
-(7, 'Bloco Auditório e Biblioteca', 'Auditório, Anfiteatro e Biblioteca');
+(7, 'Bloco Anfiteatro e Biblioteca', 'Anfiteatro e Biblioteca');
 
 INSERT INTO sala (codigo_sala, identificacao, andar, tipo_uso, codigo_bloco) VALUES
 (1, 'SALA DE AULA 15', '1º Andar', 'Sala de aula', 1),
@@ -148,9 +148,6 @@ INSERT INTO sala (codigo_sala, identificacao, andar, tipo_uso, codigo_bloco) VAL
 (29, 'SALA DE AULA 8', 'Térreo', 'Sala de aula', 3),
 (30, 'SALA DE AULA 9', 'Térreo', 'Sala de aula', 3),
 (31, 'SALA DE AULA 10', 'Térreo', 'Sala de aula', 3),
-(32, 'LAB QUÍMICA', 'Térreo', 'Laboratório', 3),
-(33, 'LAB FÍSICA', 'Térreo', 'Laboratório', 3),
-(34, 'LAB BIOLOGIA', 'Térreo', 'Laboratório', 3),
 (35, 'SALA DE AULA 11', 'Térreo', 'Sala de aula', 4),
 (36, 'SALA DE AULA 12', 'Térreo', 'Sala de aula', 4),
 (37, 'SALA DE AULA 13', 'Térreo', 'Sala de aula', 4),
@@ -178,13 +175,8 @@ INSERT INTO sala (codigo_sala, identificacao, andar, tipo_uso, codigo_bloco) VAL
 (59, 'GABINETE', 'Térreo', 'Administrativo', 4),
 (60, 'CORES', 'Térreo', 'Administrativo', 4),
 (61, 'DG', 'Térreo', 'Administrativo', 4),
-(62, 'REFEITÓRIO', 'Térreo', 'Serviço', 5),
-(63, 'COZINHA', 'Térreo', 'Serviço', 5),
-(64, 'CANTINA', 'Térreo', 'Serviço', 5),
 (65, 'DEPÓSITO', 'Térreo', 'Serviço', 5),
-(66, 'SERVIÇO MÉDICO', 'Térreo', 'Serviço', 5),
 (67, 'ÁREA DE SERVIÇO', 'Térreo', 'Serviço', 5),
-(68, 'ALMOXARIFADO', 'Térreo', 'Serviço', 5),
 (69, 'SALA ADM', 'Térreo', 'Administrativo', 5),
 (70, 'PARTE EXTERNA', 'Térreo', 'Área Externa (2 câmeras)', 5),
 (71, 'GINÁSIO', 'Térreo', 'Esportivo', 6),
@@ -197,7 +189,6 @@ INSERT INTO sala (codigo_sala, identificacao, andar, tipo_uso, codigo_bloco) VAL
 (78, 'TRANSP.', 'Térreo', 'Administrativo', 6),
 (79, 'BANHEIRO MASC.', 'Térreo', 'Banheiro', 6),
 (80, 'BANHEIRO FEM.', 'Térreo', 'Banheiro', 6),
-(81, 'AUDITÓRIO', 'Térreo', 'Eventos', 7),
 (82, 'ANFITEATRO', 'Térreo', 'Eventos', 7),
 (83, 'BIBLIOTECA', 'Térreo', 'Biblioteca', 7);
 
@@ -321,9 +312,6 @@ INSERT INTO tmp_ac VALUES
 ('LAB MATEMÁTICA','ELGIN',64.1,30000),
 ('LAB EDIF','Não identificável',61.4,30000),
 ('LAB REDES','Não identificável',61.4,30000),
-('LAB QUÍMICA','Não identificável',61.4,30000),
-('LAB FÍSICA','Não identificável',61.4,30000),
-('LAB BIOLOGIA','Não identificável',61.4,30000),
 ('LAB INFORMÁTICA 1','Não identificável',61.4,30000),
 ('LAB INFORMÁTICA 2','Não identificável',61.4,30000),
 ('LAB MANUTENÇÃO','Não identificável',61.4,30000),
