@@ -1,0 +1,29 @@
+:root { --bg:#0f172a; --card:#1e293b; --line:#334155; --txt:#e2e8f0; --mut:#94a3b8; --acc:#22c55e; --ac:#38bdf8; --err:#ef4444; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+a { color:var(--ac); }
+header.top { padding:14px 28px; border-bottom:1px solid var(--line); display:flex; gap:24px; align-items:center; }
+header.top h1 { margin:0; font-size:1.2rem; } header.top h1 span { color:var(--acc); }
+header.top nav { display:flex; gap:6px; flex:1; }
+header.top nav a { color:var(--mut); text-decoration:none; padding:6px 12px; border-radius:8px; }
+header.top nav a.on, header.top nav a:hover { background:var(--card); color:var(--txt); }
+header.top .me { color:var(--mut); font-size:.85rem; } header.top .me em { color:var(--acc); font-style:normal; margin:0 8px; }
+.wrap { padding:24px; max-width:1200px; margin:auto; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; font-size:.85rem; }
+th, td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; }
+th { color:var(--mut); font-weight:500; background:#0b1220; }
+td.ni { color:#f59e0b; font-style:italic; }
+input, select, textarea { width:100%; background:#0b1220; color:var(--txt); border:1px solid var(--line); border-radius:8px; padding:9px 10px; font:inherit; }
+input:focus, select:focus, textarea:focus { outline:none; border-color:var(--acc); }
+label { display:block; font-size:.8rem; color:var(--mut); margin:10px 0 4px; }
+.btn { background:var(--acc); color:#04210f; border:0; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer; }
+.btn.sec { background:#334155; color:var(--txt); } .btn.del { background:var(--err); color:#fff; }
+.btn.sm { padding:5px 10px; font-size:.78rem; }
+.grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0 14px; }
+.msg { padding:10px 14px; border-radius:8px; margin-bottom:14px; background:#14532d; }
+.msg.err { background:#7f1d1d; }
+.auth { min-height:100vh; display:grid; place-items:center; }
+.auth .card { width:360px; } .auth h2 { margin-top:0; } .auth .btn { width:100%; margin-top:18px; }
+.badge { padding:2px 8px; border-radius:20px; font-size:.75rem; background:#334155; }
+.badge.Concluída { background:#14532d; } .badge.Pendente { background:#78350f; } .badge.Em\ andamento { background:#1e3a8a; }
