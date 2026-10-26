@@ -105,6 +105,8 @@ $plantaSalas = [
     [33, 48, 42, 54, 'SALA DE DANÇA',   'SALA DE DANÇA', ''],
     [42, 48, 51, 54, 'ACADEMIA',        'ACADEMIA', ''],
     [12, 57, 51, 74, 'GINÁSIO',         'GINÁSIO POLIESPORTIVO', 'Quadra coberta'],
+    [52, 57, 58, 66, 'ANFITEATRO',      'ANFITEATRO', ''],
+    [52, 66, 58, 74, 'BIBLIOTECA',      'BIBLIOTECA', ''],
 
     // --- BLOCO CENTRAL: LABS INFORMÁTICA & APOIO (Linhas 25..33, Colunas 1..35) ---
     [25,  1, 33,  8, 'LAB EDIF',              'LAB. EDIFICAÇÕES', 'Bloco Central'],
@@ -119,7 +121,6 @@ $plantaSalas = [
     [33,  1, 41,  6, 'SALA DE AULA 4',  'SALA DE AULA 04', 'GREE · 36.000 BTUs'],
     [41,  1, 49,  6, 'SALA DE AULA 3',  'SALA DE AULA 03', 'GREE · 36.000 BTUs'],
     [49,  1, 57,  6, 'SALA DE AULA 2',  'SALA DE AULA 02', 'AGRATTO · 30.000 BTUs'],
-    [57,  1, 65,  6, 'SALA DE AULA 1',  'SALA DE AULA 01', 'AGRATTO · 30.000 BTUs'],
 
     [35,  8, 40, 14, 'SALA DE AULA 6',  'SALA DE AULA 06', 'AGRATTO · 30.000 BTUs'],
     [35, 14, 40, 20, 'SALA DE AULA 5',  'SALA DE AULA 05', ''],
@@ -133,58 +134,23 @@ $plantaSalas = [
     [58,  8, 65, 14, 'LAB QUÍMICA',     'LAB. QUÍMICA', ''],
     [58, 14, 65, 20, 'LAB FÍSICA',      'LAB. FÍSICA', ''],
     [58, 21, 65, 27, 'LAB BIOLOGIA',    'LAB. BIOLOGIA', ''],
-    [58, 27, 65, 30, 'SALA ADM',        'SALA ADM', ''],
 
     // --- BLOCO DE SERVIÇOS E CONVIVÊNCIA (Linhas 65..89, Colunas 22..43) ---
     [65, 22, 73, 35, 'REFEITÓRIO',     'REFEITÓRIO', ''],
     [65, 35, 73, 43, 'COZINHA',        'COZINHA', ''],
     [73, 22, 81, 31, 'CANTINA',        'CANTINA', ''],
-    [74, 31, 81, 36, 'DEPÓSITO',       'DEPÓSITO', ''],
     [74, 36, 81, 43, 'SERVIÇO MÉDICO', 'SERVIÇO MÉDICO', ''],
-    [81, 22, 89, 35, 'ÁREA DE SERVIÇO','ÁREA DE SERVIÇO', ''],
-    [81, 35, 89, 43, 'PARTE EXTERNA',  'PARTE EXTERNA', '2 Tom. · 12 Lâmp. · 2 Câm.'],
 
     // --- BLOCO ADMINISTRATIVO E ENSINO SUL (Linhas 85..133, Colunas 1..35) ---
     // Coluna Oeste (c 1..6)
-    [85,  1, 88,  6, 'COTEP 1',             'COTEP 1', ''],
-    [88,  1, 91,  6, 'COTEP 2',             'COTEP 2', ''],
-    [91,  1, 95,  6, 'LAB INFORMÁTICA 4',   'LAB. INFOR. 4', ''],
-    [95,  1, 99,  6, 'SALA DE AULA 11',     'SALA 11', 'GREE · 18.000 BTUs'],
-    [99,  1,109,  6, 'SALA DE AULA 12',     'SALA DE AULA 12', 'AGRATTO · 30.000 BTUs'],
-    [109, 1,114,  6, 'SALA DE AULA 13',     'SALA 13', 'GREE · 36.000 BTUs'],
-    [114, 1,120,  6, 'COPA',                'COPA', ''],
-    [120, 1,125,  6, 'DIRETORIA ACADÊMICA', 'DIRETORIA ACADÊMICA', ''],
-    [125, 1,128,  6, 'GABINETE',            'GABINETE', ''],
-    [128, 1,133,  6, 'DG',                  'DG (DIREÇÃO GERAL)', ''],
 
     // Coluna Centro-Oeste (c 8..20)
-    [91,  8, 99, 16, 'SALA PROF.',        'SALA PROFESSORES', ''],
-    [91, 16, 99, 20, 'NEABI',             'NEABI', ''],
-    [99,  8,109, 14, 'SALA COORDENADORES','SALA COORDENADORES', ''],
-    [113, 8,118, 14, 'COTEP',             'COTEP (STE-11 / ITE-21)', ''],
-    [118, 8,121, 14, 'PROTOCOLO',         'PROTOCOLO', ''],
-    [124, 8,133, 14, 'CORES',             'CORES', ''],
 
     // Coluna Centro-Leste (c 22..28)
-    [99, 22,112, 28, 'SALA DE AULA 14',   'SALA 14', 'GREE · 36.000 BTUs'],
-    [112,22,117, 28, 'HOTEL DE PROJETOS', 'HOTEL DE PROJETOS', ''],
 
     // Coluna Leste (c 30..35)
-    [89, 30, 94, 35, 'ARQUIVO MORTO',  'ARQUIVO MORTO', ''],
-    [94, 30, 97, 35, 'CGTI 1',         'CGTI 1', ''],
-    [97, 30,100, 35, 'CGTI 2',         'CGTI 2', ''],
-    [100,30,103, 35, 'CGTI 3',         'CGTI 3', ''],
-    [103,30,107, 35, 'DAP',            'DAP', ''],
-    [107,30,110, 35, 'GGP',            'GGP', ''],
-    [110,30,113, 35, 'COORD. ESTÁGIO', 'COORD. ESTÁGIO', ''],
-    [113,30,117, 35, 'DOF',            'DOF', ''],
-    [117,30,120, 35, 'AUDIOVISUAL',    'AUDIOVISUAL', ''],
 
-    // --- AUDITÓRIO, ANFITEATRO E BIBLIOTECA (Linhas 120..133, Colunas 22..35) ---
-    [120,22,124, 35, 'ANFITEATRO', 'ANFITEATRO', ''],
-    [124,22,130, 35, 'AUDITÓRIO',  'AUDITÓRIO', ''],
-    [130,22,133, 35, 'BIBLIOTECA', 'BIBLIOTECA', ''],
-];
+    ];
 
 // Elementos estruturais da planta (corredores, rampas, banheiros, arquibancadas, pátios)
 $plantaEstruturas = [
@@ -204,10 +170,6 @@ $plantaEstruturas = [
     [13, 74, 50, 76, 'arq',    'ARQUIBANCADA'],
 
     [40,  8, 56, 28, 'patio',  'PÁTIO CENTRAL COBERTO'],
-    [65,  1, 85,  6, 'cor',    'GALERIA / CORREDOR OESTE'],
-    [65,  8, 89, 20, 'patio',  'ÁREA DE CONVIVÊNCIA / JARDIM INTERNO'],
-    [91, 22, 99, 28, 'wc',     'SANITÁRIOS / APOIO'],
-    [109, 8,113, 14, 'rampa',  'ESCADA / HALL'],
 ];
 ?>
 <!DOCTYPE html>
