@@ -170,6 +170,10 @@ $plantaEstruturas = [
     [13, 74, 50, 76, 'arq',    'ARQUIBANCADA'],
 
     [40,  8, 56, 28, 'patio',  'PÁTIO CENTRAL COBERTO'],
+
+    // Banheiros do Bloco Central
+    [50,  7, 56, 10, 'wc', 'BANHEIRO FEM.'],
+    [50, 26, 56, 29, 'wc', 'BANHEIRO MASC.'],
 ];
 ?>
 <!DOCTYPE html>
