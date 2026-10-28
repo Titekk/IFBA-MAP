@@ -35,6 +35,25 @@ CREATE TABLE ponto_energia (
   televisao VARCHAR(30) NOT NULL DEFAULT 'Não identificável',
   lampadas VARCHAR(30) NOT NULL DEFAULT 'Não identificável',
   computador VARCHAR(30) NOT NULL DEFAULT 'Não identificável',
+  impressora VARCHAR(30) NOT NULL DEFAULT 'Não identificável',
+  FOREIGN KEY (codigo_sala) REFERENCES sala(codigo_sala) ON DELETE CASCADE
+);
+
+CREATE TABLE device_override (
+  codigo_override INT PRIMARY KEY AUTO_INCREMENT,
+  codigo_sala INT NOT NULL,
+  device_key VARCHAR(64) NOT NULL,
+  device_type VARCHAR(32) NOT NULL,
+  wall VARCHAR(16) NULL,
+  offset_x DECIMAL(6,3) NULL,
+  height_y DECIMAL(6,3) NULL,
+  table_id VARCHAR(32) NULL,
+  slot_index INT NULL,
+  width_w DECIMAL(6,3) NULL,
+  height_h DECIMAL(6,3) NULL,
+  depth_d DECIMAL(6,3) NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uq_sala_device (codigo_sala, device_key),
   FOREIGN KEY (codigo_sala) REFERENCES sala(codigo_sala) ON DELETE CASCADE
 );
 

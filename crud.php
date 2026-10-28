@@ -22,13 +22,33 @@ switch ($acao) {
 
 // ---------- SELECIONAR ----------
 case 'sala':
-    $st = $conexao->prepare("SELECT s.*, p.tomada, p.ar_condicionado, p.ventilador, p.televisao, p.lampadas, p.computador, b.nome bloco
+    $st = $conexao->prepare("SELECT s.*, p.tomada, p.ar_condicionado, p.ventilador, p.televisao, p.lampadas, p.computador,
+                             COALESCE(p.impressora, 'Não identificável') AS impressora, b.nome bloco
                              FROM sala s JOIN bloco b USING(codigo_bloco) LEFT JOIN ponto_energia p USING(codigo_sala) WHERE s.codigo_sala=?");
     $id = (int)$_GET['id']; $st->bind_param('i', $id); $st->execute();
     $sala = $st->get_result()->fetch_assoc() ?: $falha('Sala não encontrada.', 404);
     $st = $conexao->prepare("SELECT e.* FROM alocacao a JOIN equipamento e USING(codigo_equipamento) WHERE a.codigo_sala=? AND a.data_retirada IS NULL");
     $st->bind_param('i', $id); $st->execute();
     $sala['equipamentos'] = $st->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $overrides = [];
+    $stOv = $conexao->prepare("SELECT * FROM device_override WHERE codigo_sala=?");
+    if ($stOv) {
+        $stOv->bind_param('i', $id); $stOv->execute();
+        foreach ($stOv->get_result()->fetch_all(MYSQLI_ASSOC) as $ov) {
+            $overrides[$ov['device_key']] = [
+                'wall' => $ov['wall'] ?: null,
+                'offsetX' => $ov['offset_x'] !== null ? (float)$ov['offset_x'] : null,
+                'height' => $ov['height_y'] !== null ? (float)$ov['height_y'] : null,
+                'tableId' => $ov['table_id'] ?: null,
+                'slotIndex' => $ov['slot_index'] !== null ? (int)$ov['slot_index'] : null,
+                'w' => $ov['width_w'] !== null ? (float)$ov['width_w'] : null,
+                'h' => $ov['height_h'] !== null ? (float)$ov['height_h'] : null,
+                'd' => $ov['depth_d'] !== null ? (float)$ov['depth_d'] : null,
+            ];
+        }
+    }
+    $sala['overrides'] = $overrides;
     $ok(['sala' => $sala]);
 
 // ---------- ATUALIZAR SALA + PONTOS DE ENERGIA (admin) ----------
@@ -38,11 +58,49 @@ case 'atualizar_sala':
     [$an, $tu, $cp, $ar, $si] = [$txt('andar'), $txt('tipo_uso'), $txt('capacidade_pessoas'), $txt('area'), $txt('situacao')];
     $st = $conexao->prepare("UPDATE sala SET andar=?, tipo_uso=?, capacidade_pessoas=?, area=?, situacao=? WHERE codigo_sala=?");
     $st->bind_param('sssssi', $an, $tu, $cp, $ar, $si, $id); $st->execute();
-    [$to, $ac, $ve, $tv, $la, $co] = [$txt('tomada'), $txt('ar_condicionado'), $txt('ventilador'), $txt('televisao'), $txt('lampadas'), $txt('computador')];
-    $st = $conexao->prepare("INSERT INTO ponto_energia (codigo_sala, tomada, ar_condicionado, ventilador, televisao, lampadas, computador)
-                             VALUES (?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE tomada=VALUES(tomada), ar_condicionado=VALUES(ar_condicionado),
-                             ventilador=VALUES(ventilador), televisao=VALUES(televisao), lampadas=VALUES(lampadas), computador=VALUES(computador)");
-    $st->bind_param('issssss', $id, $to, $ac, $ve, $tv, $la, $co); $st->execute();
+    [$to, $ac, $ve, $tv, $la, $co, $im] = [$txt('tomada'), $txt('ar_condicionado'), $txt('ventilador'), $txt('televisao'), $txt('lampadas'), $txt('computador'), $txt('impressora')];
+    $st = $conexao->prepare("INSERT INTO ponto_energia (codigo_sala, tomada, ar_condicionado, ventilador, televisao, lampadas, computador, impressora)
+                             VALUES (?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE tomada=VALUES(tomada), ar_condicionado=VALUES(ar_condicionado),
+                             ventilador=VALUES(ventilador), televisao=VALUES(televisao), lampadas=VALUES(lampadas), computador=VALUES(computador), impressora=VALUES(impressora)");
+    $st->bind_param('isssssss', $id, $to, $ac, $ve, $tv, $la, $co, $im); $st->execute();
+    $ok();
+
+// ---------- OVERRIDES 3D DO ADMINISTRADOR (BR-07 / T-10) ----------
+case 'salvar_override_3d':
+    $somente(['Administrador']);
+    $idSala = (int)($_POST['codigo_sala'] ?? 0);
+    $devKey = trim($_POST['device_key'] ?? '');
+    $devType = trim($_POST['device_type'] ?? '');
+    if (!$idSala || $devKey === '' || $devType === '') $falha('Dados de override incompletos.');
+    $wall = ($v = trim($_POST['wall'] ?? '')) === '' ? null : $v;
+    $offsetX = $num('offset_x');
+    $heightY = $num('height_y');
+    $tableId = ($v = trim($_POST['table_id'] ?? '')) === '' ? null : $v;
+    $slotIdx = ($v = trim($_POST['slot_index'] ?? '')) === '' ? null : (int)$v;
+    $w = $num('width_w');
+    $h = $num('height_h');
+    $d = $num('depth_d');
+    $st = $conexao->prepare("INSERT INTO device_override (codigo_sala, device_key, device_type, wall, offset_x, height_y, table_id, slot_index, width_w, height_h, depth_d)
+                             VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                             ON DUPLICATE KEY UPDATE device_type=VALUES(device_type), wall=VALUES(wall), offset_x=VALUES(offset_x), height_y=VALUES(height_y),
+                             table_id=VALUES(table_id), slot_index=VALUES(slot_index), width_w=VALUES(width_w), height_h=VALUES(height_h), depth_d=VALUES(depth_d)");
+    $st->bind_param('isssddsiddd', $idSala, $devKey, $devType, $wall, $offsetX, $heightY, $tableId, $slotIdx, $w, $h, $d);
+    $st->execute();
+    $ok();
+
+case 'resetar_override_3d':
+    $somente(['Administrador']);
+    $idSala = (int)($_POST['codigo_sala'] ?? 0);
+    $devKey = trim($_POST['device_key'] ?? '');
+    if (!$idSala) $falha('Informe a sala.');
+    if ($devKey !== '') {
+        $st = $conexao->prepare("DELETE FROM device_override WHERE codigo_sala=? AND device_key=?");
+        $st->bind_param('is', $idSala, $devKey);
+    } else {
+        $st = $conexao->prepare("DELETE FROM device_override WHERE codigo_sala=?");
+        $st->bind_param('i', $idSala);
+    }
+    $st->execute();
     $ok();
 
 // ---------- INSERIR / ATUALIZAR EQUIPAMENTO (admin) ----------

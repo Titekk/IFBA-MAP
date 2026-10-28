@@ -1,0 +1,14 @@
+# Dependências Node
+node_modules/
+
+# Arquivos de ambiente e configuração local
+.env
+.env.*
+
+# Documentos de planejamento e instruções de agente
+.planning/
+.AGENTS.MD
+DESIGN.md
+PRODUCT.md
+PROMPT.md
+prompt_refined_en.md

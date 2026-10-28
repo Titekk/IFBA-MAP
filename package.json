@@ -1,0 +1,13 @@
+{
+  "name": "ifba-map-3d-classroom-visualizer",
+  "version": "1.0.0",
+  "description": "IFBA Campus Ilhéus 2D/3D Facility & Classroom Visualizer",
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  }
+}
