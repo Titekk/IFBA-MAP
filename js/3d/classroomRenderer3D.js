@@ -229,9 +229,9 @@ function buildDeviceMeshGroup(placement, isSelected = false) {
 export function mountClassroom3D(containerEl, { onSelectDevice } = {}) {
   const scene = new THREE.Scene();
   const isDarkTheme = () => document.documentElement.getAttribute('data-theme') === 'dark';
-  scene.background = new THREE.Color(isDarkTheme() ? 0x0c0c0e : 0xeaeae6);
+  scene.background = new THREE.Color(isDarkTheme() ? 0x0d1117 : 0xeaeef2);
   window.addEventListener('ifba-theme-change', (e) => {
-    scene.background = new THREE.Color(e.detail === 'dark' ? 0x0c0c0e : 0xeaeae6);
+    scene.background = new THREE.Color(e.detail === 'dark' ? 0x0d1117 : 0xeaeef2);
   });
 
   const width = Math.max(containerEl.clientWidth, 400);
