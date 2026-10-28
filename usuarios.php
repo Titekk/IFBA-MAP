@@ -6,7 +6,7 @@ $lista = $conexao->query("SELECT u.codigo_usuario, u.nome, u.email, t.matricula,
     FROM usuario u LEFT JOIN adm a USING(codigo_usuario) LEFT JOIN tecnico t USING(codigo_usuario) ORDER BY u.nome")->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Usuários · IFBA Ilhéus</title><link rel="stylesheet" href="style.css"></head>
+<title>Usuários · IFBA Campus Ilhéus</title><link rel="stylesheet" href="style.css?v=4"></head>
 <body>
 <?= navbar($u, 'usuarios.php') ?>
 <div class="wrap"><div id="msg"></div>

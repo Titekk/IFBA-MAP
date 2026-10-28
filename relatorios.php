@@ -35,8 +35,8 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatórios de Manutenção · IFBA Ilhéus</title>
-<link rel="stylesheet" href="style.css">
+<title>Relatórios de Manutenção · IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <?= navbar($u, 'relatorios.php') ?>
@@ -46,8 +46,8 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
 <?php if ($podeEscrever): ?>
 <form class="card" id="formRel">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-    <h2 style="margin:0">Formulário de Relatório de Manutenção</h2>
-    <span class="badge" style="background:#1e3a8a">Cargo ativo: <?= h($u['cargo']) ?></span>
+    <h2 style="margin:0;font-size:1rem">Formulário de Relatório de Manutenção</h2>
+    <span class="badge">Cargo: <?= h($u['cargo']) ?></span>
   </div>
   <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
     <div>

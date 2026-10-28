@@ -26,17 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entrar · Mapa Energético IFBA Ilhéus</title>
-<link rel="stylesheet" href="style.css">
+<title>Entrar · IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="auth">
-<form class="card" method="post" id="fLogin" style="width:410px">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-    <div style="width:12px;height:32px;border-radius:4px;background:var(--acc)"></div>
-    <div>
-      <h2 style="margin:0">IFBA <span style="color:var(--acc)">Campus Ilhéus</span></h2>
-      <small style="color:var(--mut)">Monitoramento Energético &amp; Manutenção</small>
-    </div>
+<form class="card" method="post" id="fLogin" style="width:400px">
+  <div style="margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)">
+    <h2 style="margin:0;font-size:1.05rem">IFBA Campus Ilhéus</h2>
+    <small style="color:var(--mut)">Sistema de Monitoramento Energético e Manutenção</small>
   </div>
   <?php if ($criado): ?><div class="msg">Conta criada com sucesso! Faça login abaixo.</div><?php endif; ?>
   <?php if ($erro): ?><div class="msg err"><?= h($erro) ?></div><?php endif; ?>

@@ -31,9 +31,9 @@ function checar_csrf(): void {
 }
 
 function navbar(array $u, string $ativo): string {
-    $links = ['index.php' => 'Mapa', 'relatorios.php' => 'Relatórios'];
+    $links = ['index.php' => 'Planta e Salas', 'relatorios.php' => 'Manutenções'];
     if ($u['cargo'] === 'Administrador') $links['usuarios.php'] = 'Usuários';
-    $html = '<header class="top"><h1>IFBA <span>Campus Ilhéus</span></h1><nav>';
+    $html = '<header class="top"><div class="brand">IFBA Campus Ilhéus <span class="brand-sep">/</span> <span>Monitoramento Energético</span></div><nav>';
     foreach ($links as $href => $txt) $html .= '<a href="'.$href.'"'.($ativo === $href ? ' class="on"' : '').'>'.$txt.'</a>';
-    return $html.'</nav><div class="me">'.h($u['nome']).' <em>'.h($u['cargo']).'</em> <a href="logout.php">Sair</a></div></header>';
+    return $html.'</nav><div class="me"><span>'.h($u['nome']).'</span> <em>'.h($u['cargo']).'</em> <a href="logout.php">Sair</a></div></header>';
 }

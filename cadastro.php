@@ -48,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Criar Conta · IFBA Ilhéus</title>
-<link rel="stylesheet" href="style.css">
+<title>Criar Conta · IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="auth">
 <form class="card" method="post" style="width:420px">
