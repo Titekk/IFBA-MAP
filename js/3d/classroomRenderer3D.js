@@ -228,7 +228,11 @@ function buildDeviceMeshGroup(placement, isSelected = false) {
  */
 export function mountClassroom3D(containerEl, { onSelectDevice } = {}) {
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0c0c0e);
+  const isDarkTheme = () => document.documentElement.getAttribute('data-theme') === 'dark';
+  scene.background = new THREE.Color(isDarkTheme() ? 0x0c0c0e : 0xeaeae6);
+  window.addEventListener('ifba-theme-change', (e) => {
+    scene.background = new THREE.Color(e.detail === 'dark' ? 0x0c0c0e : 0xeaeae6);
+  });
 
   const width = Math.max(containerEl.clientWidth, 400);
   const height = Math.max(containerEl.clientHeight, 360);

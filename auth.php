@@ -33,7 +33,8 @@ function checar_csrf(): void {
 function navbar(array $u, string $ativo): string {
     $links = ['index.php' => 'Planta e Salas', 'relatorios.php' => 'Manutenções'];
     if ($u['cargo'] === 'Administrador') $links['usuarios.php'] = 'Usuários';
-    $html = '<header class="top"><div class="brand">IFBA Campus Ilhéus <span class="brand-sep">/</span> <span>Monitoramento Energético</span></div><nav>';
+    $scriptTema = '<script>(function(){var t=localStorage.getItem("ifba_theme")||"light";document.documentElement.setAttribute("data-theme",t);window.alternarTema=function(){var n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);localStorage.setItem("ifba_theme",n);var b=document.getElementById("btnTema");if(b)b.textContent=n==="dark"?"Tema: Escuro":"Tema: Claro";window.dispatchEvent(new CustomEvent("ifba-theme-change",{detail:n}));};window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("btnTema");if(b)b.textContent=(document.documentElement.getAttribute("data-theme")==="dark")?"Tema: Escuro":"Tema: Claro";});})();</script>';
+    $html = $scriptTema . '<header class="top"><div class="brand">IFBA Campus Ilhéus <span class="brand-sep">/</span> <span>Monitoramento Energético</span></div><nav>';
     foreach ($links as $href => $txt) $html .= '<a href="'.$href.'"'.($ativo === $href ? ' class="on"' : '').'>'.$txt.'</a>';
-    return $html.'</nav><div class="me"><span>'.h($u['nome']).'</span> <em>'.h($u['cargo']).'</em> <a href="logout.php">Sair</a></div></header>';
+    return $html.'</nav><div class="me"><button type="button" id="btnTema" class="theme-toggle" onclick="alternarTema()">Tema: Claro</button> <span>'.h($u['nome']).'</span> <em>'.h($u['cargo']).'</em> <a href="logout.php">Sair</a></div></header>';
 }

@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Criar Conta | IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
+<script>(function(){var t=localStorage.getItem("ifba_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
 </head>
 <body class="auth">
 <form class="card" method="post" style="width:420px">

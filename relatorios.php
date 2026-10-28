@@ -36,7 +36,7 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Relatórios de Manutenção | IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 <?= navbar($u, 'relatorios.php') ?>

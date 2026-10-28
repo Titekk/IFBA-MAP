@@ -236,7 +236,7 @@ $plantaEstruturas = [
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Planta 2D e Monitoramento Energético | IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <script type="importmap">
 {
   "imports": {
@@ -250,7 +250,7 @@ $plantaEstruturas = [
   .workspace { display:flex; flex-direction:column; padding:16px 20px 32px; transition:margin-right 180ms var(--ease-snap); }
   body.open .workspace { margin-right:480px; }
 
-  /* Mappedin + PUTURE Unified Building Block Ledger Strip (No floating KPI cards) */
+  /* Mappedin + Vercel/TE Unified Building Block Ledger Strip */
   .bloco-strip {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
@@ -270,8 +270,8 @@ $plantaEstruturas = [
   }
   .bcard:hover { background:var(--card); }
   .bcard.on {
-    background:var(--card-hover);
-    box-shadow:inset 0 2px 0 var(--txt);
+    background:var(--card);
+    box-shadow:inset 0 2px 0 var(--inv-bg);
   }
   .bcard h4 { margin:0 0 4px; font-size:.75rem; font-weight:500; color:var(--mut); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bcard.on h4 { color:var(--txt); font-weight:600; }
@@ -279,23 +279,23 @@ $plantaEstruturas = [
   .bcard .val small { font-size:.68rem; font-weight:400; color:var(--mut); }
   .bcard .meta { font-size:.68rem; color:var(--mut); display:flex; justify-content:space-between; margin-top:4px; font-variant-numeric:tabular-nums; }
 
-  /* Barra de ferramentas do mapa (Mappedin Controls) */
+  /* Barra de ferramentas do mapa */
   .toolbar { background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-sm); padding:7px 10px;
              display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:12px; }
   .toolbar .grp { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
-  .toolbar input[type="search"] { width:250px; padding:6px 10px; font-size:.78rem; background:var(--bg); }
-  .toolbar select { width:auto; padding:6px 10px; font-size:.78rem; background:var(--bg); }
+  .toolbar input[type="search"] { width:250px; padding:6px 10px; font-size:.78rem; background:var(--bg-elevated); }
+  .toolbar select { width:auto; padding:6px 10px; font-size:.78rem; background:var(--bg-elevated); }
   .tab-btn { background:transparent; color:var(--mut); border:1px solid transparent; border-radius:var(--radius-sm); padding:5px 11px;
              font-size:.78rem; font-weight:500; cursor:pointer; transition:color 140ms var(--ease-snap), background 140ms var(--ease-snap); }
   .tab-btn:hover { color:var(--txt); background:var(--card); }
-  .tab-btn.on { background:var(--txt); color:var(--bg); border-color:var(--txt); font-weight:600; }
+  .tab-btn.on { background:var(--inv-bg); color:var(--inv-txt); border-color:var(--inv-bg); font-weight:600; }
   .legend-bar { display:flex; gap:8px; align-items:center; font-size:.72rem; color:var(--mut); flex-wrap:wrap; margin-right:4px; }
-  .legend-tag { padding:2px 7px; border-radius:var(--radius-sm); font-size:.7rem; border:1px solid var(--line); background:var(--card); color:var(--mut); }
-  .legend-tag.ac { background:#111d2b; border-color:#2b4c73; color:#bae6fd; }
-  .legend-tag.sel { background:#0d2116; border-color:#22c55e; color:#bbf7d0; }
+  .legend-tag { padding:2px 7px; border-radius:var(--radius-sm); font-size:.7rem; border:1px solid var(--line); background:var(--room-bg); color:var(--txt); }
+  .legend-tag.ac { background:var(--room-ac-bg); border-color:var(--room-ac-border); color:var(--txt); }
+  .legend-tag.sel { background:var(--inv-bg); border-color:var(--inv-bg); color:var(--inv-txt); }
 
-  /* Viewport da Planta 2D (Mappedin Architectural Blueprint Stage) */
-  .planta-viewport { background:#0c0c0e; border:1px solid var(--line); border-radius:var(--radius-sm); padding:18px;
+  /* Viewport da Planta 2D (Swiss White/Black Architectural Blueprint Stage) */
+  .planta-viewport { background:var(--map-bg); border:1px solid var(--line); border-radius:var(--radius-sm); padding:18px;
                      overflow:auto; position:relative; }
   .planta-grid {
     display:grid;
@@ -310,17 +310,17 @@ $plantaEstruturas = [
   /* Elementos estruturais (Corredores, Rampas, Arquibancadas, Pátios) */
   .est { border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; text-align:center;
          font-size:.61rem; font-weight:500; color:var(--mut); user-select:none; padding:2px; }
-  .est.header { background:var(--card); color:var(--txt); border:1px solid var(--line-strong);
+  .est.header { background:var(--inv-bg); color:var(--inv-txt); border:1px solid var(--inv-bg);
                 justify-content:flex-start; padding-left:10px; font-size:.68rem; font-weight:600; letter-spacing:-0.01em; }
-  .est.cor { background:#0f0f12; border:1px dashed var(--line); color:var(--mut); }
-  .est.rampa { background:#141418; border:1px solid var(--line-strong); color:var(--mut); }
-  .est.wc { background:#0f0f12; border:1px solid var(--line); color:var(--mut); writing-mode:vertical-rl; text-orientation:mixed; }
-  .est.arq { background:#141418; border:1px solid var(--line-strong); color:var(--mut); writing-mode:vertical-rl; font-size:.63rem; }
-  .est.patio { background:#0e0e11; border:1px dashed var(--line); color:var(--mut); font-size:.7rem; }
+  .est.cor { background:var(--est-cor-bg); border:1px dashed var(--line); color:var(--mut); }
+  .est.rampa { background:var(--est-rampa-bg); border:1px solid var(--line); color:var(--txt); }
+  .est.wc { background:var(--est-cor-bg); border:1px solid var(--line); color:var(--mut); writing-mode:vertical-rl; text-orientation:mixed; }
+  .est.arq { background:var(--est-rampa-bg); border:1px solid var(--line); color:var(--txt); writing-mode:vertical-rl; font-size:.63rem; }
+  .est.patio { background:var(--bg); border:1px dashed var(--line); color:var(--mut); font-size:.7rem; }
 
   /* Salas clicáveis na Planta 2D */
   .p-sala {
-    background:#141417;
+    background:var(--room-bg);
     border:1px solid var(--line);
     border-radius:var(--radius-sm);
     padding:3px 4px;
@@ -336,35 +336,42 @@ $plantaEstruturas = [
   }
   .p-sala:hover {
     z-index:5;
-    border-color:var(--txt);
+    border-color:var(--line-strong);
     background:var(--card-hover);
   }
   .p-sala.ac {
-    background:#111d2b;
-    border-color:#2b4c73;
+    background:var(--room-ac-bg);
+    border-color:var(--room-ac-border);
   }
   .p-sala.sel {
-    background:#0d2116 !important;
-    border:1px solid var(--acc-text) !important;
+    background:var(--inv-bg) !important;
+    border:1px solid var(--inv-bg) !important;
     z-index:6;
   }
-  .p-sala.dim { opacity:.16; pointer-events:none; }
+  .p-sala.dim { opacity:.22; pointer-events:none; }
   .p-sala .nm { font-size:.62rem; font-weight:600; line-height:1.1; color:var(--txt); letter-spacing:-0.01em; }
   .p-sala .sub { font-size:.54rem; color:var(--mut); line-height:1.05; margin-top:2px; }
+  .p-sala.sel .nm,
+  .p-sala.sel .sub { color:var(--inv-txt); }
   .p-sala .kwh {
     margin-top:3px;
     font-family:var(--font-mono);
     font-variant-numeric:tabular-nums;
     font-size:.54rem;
     font-weight:500;
-    color:#bae6fd;
-    background:#0c1622;
-    border:1px solid #2b4c73;
+    color:var(--room-kwh-txt);
+    background:var(--room-kwh-bg);
+    border:1px solid var(--room-kwh-bg);
     padding:1px 4px;
     border-radius:var(--radius-sm);
   }
+  .p-sala.sel .kwh {
+    color:var(--txt);
+    background:var(--bg-elevated);
+    border-color:var(--bg-elevated);
+  }
   .p-sala[data-sala="GINÁSIO"] {
-    background:#121317;
+    background:var(--room-bg);
     border-color:var(--line-strong);
   }
 
@@ -951,6 +958,6 @@ if (salaInicial && SALAS[salaInicial]) {
   abrirSala(salaInicial);
 }
 </script>
-<script type="module" src="js/3d/classroomApp.js?v=5"></script>
+<script type="module" src="js/3d/classroomApp.js?v=6"></script>
 </body>
 </html>
