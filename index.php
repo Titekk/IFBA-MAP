@@ -96,22 +96,22 @@ $proxManut  = (int)($conexao->query("SELECT COALESCE(MAX(codigo_manutencao),0)+1
 // =====================================================================
 $plantaSalas = [
     // --- 2º PAVILHÃO - 1º ANDAR (Linhas 2..9, Colunas 1..45) ---
-    [2,  1,  9,  6, 'SALA DE AULA 22', 'SALA 22', 'ELGIN · 30.000 BTUs'],
-    [2,  6,  9, 11, 'SALA DE AULA 21', 'SALA 21', 'ELGIN · 30.000 BTUs'],
-    [2, 11,  9, 16, 'SALA DE AULA 20', 'SALA 20', 'GREE · 36.000 BTUs'],
-    [2, 16,  9, 21, 'SALA DE AULA 19', 'SALA 19', 'AGRATTO · 30.000 BTUs'],
-    [2, 25,  9, 30, 'SALA DE AULA 18', 'SALA 18', 'AGRATTO · 30.000 BTUs'],
-    [2, 30,  9, 35, 'SALA DE AULA 17', 'SALA 17', 'AGRATTO · 30.000 BTUs'],
-    [2, 35,  9, 40, 'SALA DE AULA 16', 'SALA 16', 'AGRATTO · 30.000 BTUs'],
-    [2, 40,  9, 45, 'SALA DE AULA 15', 'SALA 15', 'AGRATTO · 30.000 BTUs'],
+    [2,  1,  9,  6, 'SALA DE AULA 22', 'SALA 22', 'ELGIN 30.000 BTUs'],
+    [2,  6,  9, 11, 'SALA DE AULA 21', 'SALA 21', 'ELGIN 30.000 BTUs'],
+    [2, 11,  9, 16, 'SALA DE AULA 20', 'SALA 20', 'GREE 36.000 BTUs'],
+    [2, 16,  9, 21, 'SALA DE AULA 19', 'SALA 19', 'AGRATTO 30.000 BTUs'],
+    [2, 25,  9, 30, 'SALA DE AULA 18', 'SALA 18', 'AGRATTO 30.000 BTUs'],
+    [2, 30,  9, 35, 'SALA DE AULA 17', 'SALA 17', 'AGRATTO 30.000 BTUs'],
+    [2, 35,  9, 40, 'SALA DE AULA 16', 'SALA 16', 'AGRATTO 30.000 BTUs'],
+    [2, 40,  9, 45, 'SALA DE AULA 15', 'SALA 15', 'AGRATTO 30.000 BTUs'],
 
     // --- 2º PAVILHÃO - TÉRREO (Linhas 13..20, Colunas 1..45) ---
-    [13,  1, 20,  6, 'LAB EDIF',            'LAB. EDIFIC.', '1 AC · 16 Lâmp.'],
-    [13,  6, 20, 11, 'LAB ST',              'LAB. SEG. TRAB.', 'GREE · 8 Lâmp.'],
-    [13, 11, 20, 16, 'LABOMEC',             'LABOMEC', 'TCL · 8 Lâmp.'],
-    [13, 16, 20, 21, 'CIÊNCIAS AMBIENTAIS', 'CIÊNCIAS AMB.', 'GREE · 13 Tom.'],
-    [13, 25, 20, 30, 'LAB TOPOGRAFIA',      'LAB. TOPOGRAFIA', 'ELGIN · 8 Lâmp.'],
-    [13, 30, 20, 36, 'LAB MATEMÁTICA',      'LAB. MATEMÁTICA', 'ELGIN · 5 Tom.'],
+    [13,  1, 20,  6, 'LAB EDIF',            'LAB. EDIFIC.', '1 AC / 16 Lâmp.'],
+    [13,  6, 20, 11, 'LAB ST',              'LAB. SEG. TRAB.', 'GREE / 8 Lâmp.'],
+    [13, 11, 20, 16, 'LABOMEC',             'LABOMEC', 'TCL / 8 Lâmp.'],
+    [13, 16, 20, 21, 'CIÊNCIAS AMBIENTAIS', 'CIÊNCIAS AMB.', 'GREE / 13 Tom.'],
+    [13, 25, 20, 30, 'LAB TOPOGRAFIA',      'LAB. TOPOGRAFIA', 'ELGIN / 8 Lâmp.'],
+    [13, 30, 20, 36, 'LAB MATEMÁTICA',      'LAB. MATEMÁTICA', 'ELGIN / 5 Tom.'],
     [13, 36, 20, 45, 'LAB DESENHO',         'LAB. DE DESENHO', ''],
 
     // --- COMPLEXO ESPORTIVO / GINÁSIO (Linhas 12..51, Colunas 48..76) ---
@@ -136,18 +136,18 @@ $plantaSalas = [
     [29, 30, 33, 35, 'GRÊMIO',                'GRÊMIO', ''],
 
     // --- BLOCO CENTRAL: SALAS 01 A 10, ALMOXARIFADO E CIÊNCIAS (Linhas 33..65) ---
-    [33,  1, 41,  6, 'SALA DE AULA 4',  'SALA DE AULA 04', 'GREE · 36.000 BTUs'],
-    [41,  1, 49,  6, 'SALA DE AULA 3',  'SALA DE AULA 03', 'GREE · 36.000 BTUs'],
-    [49,  1, 57,  6, 'SALA DE AULA 2',  'SALA DE AULA 02', 'AGRATTO · 30.000 BTUs'],
-    [57,  1, 65,  6, 'SALA DE AULA 1',  'SALA DE AULA 01', 'AGRATTO · 30.000 BTUs'],
+    [33,  1, 41,  6, 'SALA DE AULA 4',  'SALA DE AULA 04', 'GREE 36.000 BTUs'],
+    [41,  1, 49,  6, 'SALA DE AULA 3',  'SALA DE AULA 03', 'GREE 36.000 BTUs'],
+    [49,  1, 57,  6, 'SALA DE AULA 2',  'SALA DE AULA 02', 'AGRATTO 30.000 BTUs'],
+    [57,  1, 65,  6, 'SALA DE AULA 1',  'SALA DE AULA 01', 'AGRATTO 30.000 BTUs'],
 
-    [35,  8, 40, 14, 'SALA DE AULA 6',  'SALA DE AULA 06', 'AGRATTO · 30.000 BTUs'],
+    [35,  8, 40, 14, 'SALA DE AULA 6',  'SALA DE AULA 06', 'AGRATTO 30.000 BTUs'],
     [35, 14, 40, 20, 'SALA DE AULA 5',  'SALA DE AULA 05', ''],
-    [35, 20, 40, 28, 'SALA DE AULA 7',  'SALA DE AULA 07', 'GREE · 36.000 BTUs'],
+    [35, 20, 40, 28, 'SALA DE AULA 7',  'SALA DE AULA 07', 'GREE 36.000 BTUs'],
 
-    [33, 30, 41, 35, 'SALA DE AULA 8',  'SALA DE AULA 08', 'GREE · 36.000 BTUs'],
-    [41, 30, 49, 35, 'SALA DE AULA 9',  'SALA DE AULA 09', 'GREE · 36.000 BTUs'],
-    [49, 30, 57, 35, 'SALA DE AULA 10', 'SALA DE AULA 10', 'AGRATTO · 30.000 BTUs'],
+    [33, 30, 41, 35, 'SALA DE AULA 8',  'SALA DE AULA 08', 'GREE 36.000 BTUs'],
+    [41, 30, 49, 35, 'SALA DE AULA 9',  'SALA DE AULA 09', 'GREE 36.000 BTUs'],
+    [49, 30, 57, 35, 'SALA DE AULA 10', 'SALA DE AULA 10', 'AGRATTO 30.000 BTUs'],
     [57, 30, 65, 35, 'ALMOXARIFADO',    'ALMOXARIFADO', ''],
 
     [58,  8, 65, 14, 'LAB QUÍMICA',     'LAB. QUÍMICA', ''],
@@ -162,16 +162,16 @@ $plantaSalas = [
     [74, 31, 81, 36, 'DEPÓSITO',       'DEPÓSITO', ''],
     [74, 36, 81, 43, 'SERVIÇO MÉDICO', 'SERVIÇO MÉDICO', ''],
     [81, 22, 89, 35, 'ÁREA DE SERVIÇO','ÁREA DE SERVIÇO', ''],
-    [81, 35, 89, 43, 'PARTE EXTERNA',  'PARTE EXTERNA', '2 Tom. · 12 Lâmp. · 2 Câm.'],
+    [81, 35, 89, 43, 'PARTE EXTERNA',  'PARTE EXTERNA', '2 Tom. / 12 Lâmp.'],
 
     // --- BLOCO ADMINISTRATIVO E ENSINO SUL (Linhas 85..133, Colunas 1..35) ---
     // Coluna Oeste (c 1..6)
     [85,  1, 88,  6, 'COTEP 1',             'COTEP 1', ''],
     [88,  1, 91,  6, 'COTEP 2',             'COTEP 2', ''],
     [91,  1, 95,  6, 'LAB INFORMÁTICA 4',   'LAB. INFOR. 4', ''],
-    [95,  1, 99,  6, 'SALA DE AULA 11',     'SALA 11', 'GREE · 18.000 BTUs'],
-    [99,  1,109,  6, 'SALA DE AULA 12',     'SALA DE AULA 12', 'AGRATTO · 30.000 BTUs'],
-    [109, 1,114,  6, 'SALA DE AULA 13',     'SALA 13', 'GREE · 36.000 BTUs'],
+    [95,  1, 99,  6, 'SALA DE AULA 11',     'SALA 11', 'GREE 18.000 BTUs'],
+    [99,  1,109,  6, 'SALA DE AULA 12',     'SALA DE AULA 12', 'AGRATTO 30.000 BTUs'],
+    [109, 1,114,  6, 'SALA DE AULA 13',     'SALA 13', 'GREE 36.000 BTUs'],
     [114, 1,120,  6, 'COPA',                'COPA', ''],
     [120, 1,125,  6, 'DIRETORIA ACADÊMICA', 'DIRETORIA ACADÊMICA', ''],
     [125, 1,128,  6, 'GABINETE',            'GABINETE', ''],
@@ -186,7 +186,7 @@ $plantaSalas = [
     [124, 8,133, 14, 'CORES',             'CORES', ''],
 
     // Coluna Centro-Leste (c 22..28)
-    [99, 22,112, 28, 'SALA DE AULA 14',   'SALA 14', 'GREE · 36.000 BTUs'],
+    [99, 22,112, 28, 'SALA DE AULA 14',   'SALA 14', 'GREE 36.000 BTUs'],
     [112,22,117, 28, 'HOTEL DE PROJETOS', 'HOTEL DE PROJETOS', ''],
 
     // Coluna Leste (c 30..35)
@@ -208,15 +208,15 @@ $plantaSalas = [
 
 // Elementos estruturais da planta (corredores, rampas, banheiros, arquibancadas, pátios)
 $plantaEstruturas = [
-    [1,   1,  2, 45, 'header', '2º PAVILHÃO · 1º ANDAR (SALAS 15 A 22)'],
+    [1,   1,  2, 45, 'header', '2º PAVILHÃO / 1º ANDAR (SALAS 15 A 22)'],
     [2,  21,  9, 25, 'wc',     'BANHEIRO'],
-    [9,   1, 10, 45, 'cor',    'CORREDOR — 1º ANDAR'],
+    [9,   1, 10, 45, 'cor',    'CORREDOR 1º ANDAR'],
     [10, 11, 11, 22, 'rampa',  'RAMPA DE ACESSO'],
     [10, 23, 11, 35, 'rampa',  'RAMPA DE ACESSO'],
 
-    [12,  1, 13, 45, 'header', '2º PAVILHÃO · TÉRREO (LABORATÓRIOS)'],
+    [12,  1, 13, 45, 'header', '2º PAVILHÃO / TÉRREO (LABORATÓRIOS)'],
     [13, 21, 20, 25, 'wc',     'BANHEIRO'],
-    [20,  1, 21, 45, 'cor',    'CORREDOR — TÉRREO'],
+    [20,  1, 21, 45, 'cor',    'CORREDOR TÉRREO'],
     [21, 11, 22, 22, 'rampa',  'RAMPA DE ACESSO'],
     [21, 23, 22, 35, 'rampa',  'RAMPA DE ACESSO'],
 
@@ -235,8 +235,8 @@ $plantaEstruturas = [
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planta 2D e Monitoramento Energético · IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=4">
+<title>Planta 2D e Monitoramento Energético | IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=5">
 <script type="importmap">
 {
   "imports": {
@@ -247,39 +247,55 @@ $plantaEstruturas = [
 </script>
 <style>
   body { overflow-x:hidden; }
-  .workspace { display:flex; flex-direction:column; padding:16px 20px 32px; }
+  .workspace { display:flex; flex-direction:column; padding:16px 20px 32px; transition:margin-right 180ms var(--ease-snap); }
   body.open .workspace { margin-right:480px; }
 
-  /* Quadro de Consumo por Bloco */
-  .bloco-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:6px; margin-bottom:12px; }
-  .bcard { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-sm);
-           padding:9px 11px; cursor:pointer; position:relative; }
-  .bcard:hover { background:var(--card-hover); border-color:var(--line-strong); }
-  .bcard.on { background:var(--card-hover); border-color:var(--acc-text); }
-  .bcard-head { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
-  .bdot { width:6px; height:6px; border-radius:0; flex-shrink:0; background:var(--mut); }
-  .bcard.on .bdot { background:var(--acc-text); }
-  .bcard h4 { margin:0; font-size:.75rem; font-weight:600; color:var(--txt); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bcard .val { font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:.95rem; font-weight:600; color:var(--txt); }
-  .bcard .val small { font-size:.69rem; font-weight:400; color:var(--mut); }
-  .bcard .meta { font-size:.69rem; color:var(--mut); display:flex; justify-content:space-between; margin-top:3px; font-variant-numeric:tabular-nums; }
+  /* Mappedin + PUTURE Unified Building Block Ledger Strip (No floating KPI cards) */
+  .bloco-strip {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    background:var(--bg-elevated);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    margin-bottom:12px;
+  }
+  .bcard {
+    background:transparent;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:10px 12px;
+    cursor:pointer;
+    position:relative;
+    transition:background 140ms var(--ease-snap);
+  }
+  .bcard:hover { background:var(--card); }
+  .bcard.on {
+    background:var(--card-hover);
+    box-shadow:inset 0 2px 0 var(--txt);
+  }
+  .bcard h4 { margin:0 0 4px; font-size:.75rem; font-weight:500; color:var(--mut); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bcard.on h4 { color:var(--txt); font-weight:600; }
+  .bcard .val { font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:.95rem; font-weight:600; color:var(--txt); letter-spacing:-0.02em; }
+  .bcard .val small { font-size:.68rem; font-weight:400; color:var(--mut); }
+  .bcard .meta { font-size:.68rem; color:var(--mut); display:flex; justify-content:space-between; margin-top:4px; font-variant-numeric:tabular-nums; }
 
-  /* Barra de ferramentas do mapa */
+  /* Barra de ferramentas do mapa (Mappedin Controls) */
   .toolbar { background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-sm); padding:7px 10px;
              display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:12px; }
   .toolbar .grp { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
-  .toolbar input[type="search"] { width:240px; padding:6px 10px; font-size:.78rem; background:var(--card); }
-  .toolbar select { width:auto; padding:6px 10px; font-size:.78rem; background:var(--card); }
-  .tab-btn { background:transparent; color:var(--mut); border:1px solid transparent; border-radius:var(--radius-sm); padding:5px 10px;
-             font-size:.78rem; font-weight:500; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+  .toolbar input[type="search"] { width:250px; padding:6px 10px; font-size:.78rem; background:var(--bg); }
+  .toolbar select { width:auto; padding:6px 10px; font-size:.78rem; background:var(--bg); }
+  .tab-btn { background:transparent; color:var(--mut); border:1px solid transparent; border-radius:var(--radius-sm); padding:5px 11px;
+             font-size:.78rem; font-weight:500; cursor:pointer; transition:color 140ms var(--ease-snap), background 140ms var(--ease-snap); }
   .tab-btn:hover { color:var(--txt); background:var(--card); }
-  .tab-btn.on { background:var(--card); color:var(--txt); border-color:var(--line-strong); }
-  .legend-bar { display:flex; gap:12px; align-items:center; font-size:.73rem; color:var(--mut); flex-wrap:wrap; margin-right:4px; }
-  .legend-bar span { display:inline-flex; align-items:center; gap:5px; }
-  .dot { width:7px; height:7px; border-radius:0; display:inline-block; }
+  .tab-btn.on { background:var(--txt); color:var(--bg); border-color:var(--txt); font-weight:600; }
+  .legend-bar { display:flex; gap:8px; align-items:center; font-size:.72rem; color:var(--mut); flex-wrap:wrap; margin-right:4px; }
+  .legend-tag { padding:2px 7px; border-radius:var(--radius-sm); font-size:.7rem; border:1px solid var(--line); background:var(--card); color:var(--mut); }
+  .legend-tag.ac { background:#111d2b; border-color:#2b4c73; color:#bae6fd; }
+  .legend-tag.sel { background:#0d2116; border-color:#22c55e; color:#bbf7d0; }
 
-  /* Viewport da Planta 2D */
-  .planta-viewport { background:#090b0e; border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px;
+  /* Viewport da Planta 2D (Mappedin Architectural Blueprint Stage) */
+  .planta-viewport { background:#0c0c0e; border:1px solid var(--line); border-radius:var(--radius-sm); padding:18px;
                      overflow:auto; position:relative; }
   .planta-grid {
     display:grid;
@@ -288,22 +304,23 @@ $plantaEstruturas = [
     gap:2px;
     min-width:1180px;
     transform-origin:top left;
+    transition:transform 160ms var(--ease-snap);
   }
 
   /* Elementos estruturais (Corredores, Rampas, Arquibancadas, Pátios) */
   .est { border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; text-align:center;
          font-size:.61rem; font-weight:500; color:var(--mut); user-select:none; padding:2px; }
   .est.header { background:var(--card); color:var(--txt); border:1px solid var(--line-strong);
-                justify-content:flex-start; padding-left:10px; font-size:.68rem; font-weight:600; }
-  .est.cor { background:#0e1116; border:1px dashed var(--line); color:var(--mut); }
-  .est.rampa { background:#12161d; border:1px solid var(--line-strong); color:var(--mut); }
-  .est.wc { background:#0e1116; border:1px solid var(--line); color:var(--mut); writing-mode:vertical-rl; text-orientation:mixed; }
-  .est.arq { background:#12161d; border:1px solid var(--line-strong); color:var(--mut); writing-mode:vertical-rl; font-size:.63rem; }
-  .est.patio { background:#0c0f14; border:1px dashed var(--line); color:var(--mut); font-size:.7rem; }
+                justify-content:flex-start; padding-left:10px; font-size:.68rem; font-weight:600; letter-spacing:-0.01em; }
+  .est.cor { background:#0f0f12; border:1px dashed var(--line); color:var(--mut); }
+  .est.rampa { background:#141418; border:1px solid var(--line-strong); color:var(--mut); }
+  .est.wc { background:#0f0f12; border:1px solid var(--line); color:var(--mut); writing-mode:vertical-rl; text-orientation:mixed; }
+  .est.arq { background:#141418; border:1px solid var(--line-strong); color:var(--mut); writing-mode:vertical-rl; font-size:.63rem; }
+  .est.patio { background:#0e0e11; border:1px dashed var(--line); color:var(--mut); font-size:.7rem; }
 
   /* Salas clicáveis na Planta 2D */
   .p-sala {
-    background:#13171f;
+    background:#141417;
     border:1px solid var(--line);
     border-radius:var(--radius-sm);
     padding:3px 4px;
@@ -315,23 +332,24 @@ $plantaEstruturas = [
     text-align:center;
     position:relative;
     overflow:hidden;
+    transition:background 120ms var(--ease-snap), border-color 120ms var(--ease-snap), opacity 140ms var(--ease-snap);
   }
   .p-sala:hover {
     z-index:5;
-    border-color:var(--line-strong);
+    border-color:var(--txt);
     background:var(--card-hover);
   }
   .p-sala.ac {
-    background:#101c28;
-    border-color:#1e3a5f;
+    background:#111d2b;
+    border-color:#2b4c73;
   }
   .p-sala.sel {
-    background:#0f291e !important;
+    background:#0d2116 !important;
     border:1px solid var(--acc-text) !important;
     z-index:6;
   }
-  .p-sala.dim { opacity:.18; pointer-events:none; }
-  .p-sala .nm { font-size:.62rem; font-weight:600; line-height:1.1; color:var(--txt); }
+  .p-sala.dim { opacity:.16; pointer-events:none; }
+  .p-sala .nm { font-size:.62rem; font-weight:600; line-height:1.1; color:var(--txt); letter-spacing:-0.01em; }
   .p-sala .sub { font-size:.54rem; color:var(--mut); line-height:1.05; margin-top:2px; }
   .p-sala .kwh {
     margin-top:3px;
@@ -339,39 +357,58 @@ $plantaEstruturas = [
     font-variant-numeric:tabular-nums;
     font-size:.54rem;
     font-weight:500;
-    color:var(--ac);
-    background:#0c1926;
-    border:1px solid #1e3a5f;
+    color:#bae6fd;
+    background:#0c1622;
+    border:1px solid #2b4c73;
     padding:1px 4px;
     border-radius:var(--radius-sm);
   }
   .p-sala[data-sala="GINÁSIO"] {
-    background:#10151d;
+    background:#121317;
     border-color:var(--line-strong);
   }
 
-  /* Painel Direito */
+  /* Painel Direito (PUTURE / Spline Inspector Sheet) */
   aside#painel {
     position:fixed; top:0; right:-500px; width:480px; max-width:95vw; height:100vh;
     background:var(--bg-elevated); border-left:1px solid var(--line); z-index:30;
-    padding:18px 20px 36px; overflow-y:auto;
+    padding:20px 22px 40px; overflow-y:auto; transition:right 180ms var(--ease-snap);
   }
   body.open aside#painel { right:0; }
   aside .close-btn { float:right; background:var(--card); border:1px solid var(--line-strong); color:var(--txt);
-                     padding:4px 9px; font-size:.75rem; border-radius:var(--radius-sm); cursor:pointer; }
-  aside .close-btn:hover { background:var(--card-hover); }
-  .kpi { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:12px 0 14px; }
-  .kpi div { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-sm); padding:8px 10px; }
-  .kpi b { display:block; font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:.94rem; font-weight:600; color:var(--txt); }
-  .kpi span { color:var(--mut); font-size:.69rem; }
-  .sec-title { font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.02em; color:var(--txt);
-               border-bottom:1px solid var(--line); padding-bottom:5px;
-               margin:18px 0 10px; display:flex; justify-content:space-between; align-items:center; }
+                     padding:4px 10px; font-size:.75rem; border-radius:var(--radius-sm); cursor:pointer; }
+  aside .close-btn:hover { background:var(--card-hover); border-color:var(--mut); }
+
+  /* Flush Property Ledger (Replaces 3-KPI-card cliché) */
+  .prop-ledger {
+    border-top:1px solid var(--line);
+    margin:12px 0 14px;
+  }
+  .prop-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:7px 2px;
+    border-bottom:1px solid var(--line);
+    font-size:.78rem;
+  }
+  .prop-row span { color:var(--mut); }
+  .prop-row b { font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-weight:600; color:var(--txt); }
+
+  .sec-title { font-size:.82rem; font-weight:600; letter-spacing:-0.015em; color:var(--txt);
+               border-bottom:1px solid var(--line); padding-bottom:6px;
+               margin:22px 0 10px; display:flex; justify-content:space-between; align-items:baseline; }
+
+  .panel-form {
+    padding:8px 0 14px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:12px;
+  }
 
   /* Visão de Todas as Tabelas das Salas */
   #visaoTabelas { display:none; }
-  .all-tables-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
-  .room-table-card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px; }
+  .all-tables-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); gap:12px; }
+  .room-table-card { background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px; }
   .room-table-card h4 { margin:0 0 4px; font-size:.86rem; display:flex; justify-content:space-between; align-items:center; }
 </style>
 </head>
@@ -379,16 +416,16 @@ $plantaEstruturas = [
 <?= navbar($u, 'index.php') ?>
 
 <div class="workspace">
-  <!-- Gastos Energéticos por Bloco e Total do Campus -->
+  <!-- Índice Arquitetônico de Blocos e Carga Energética -->
   <div class="bloco-strip">
     <div class="bcard on" data-bfiltro="0" onclick="filtrarBloco(0)">
-      <div class="bcard-head"><span class="bdot"></span><h4>Campus Ilhéus (Total)</h4></div>
+      <h4>Campus Ilhéus (Total)</h4>
       <div class="val"><?= number_format($consumoTotalCampus, 1, ',', '.') ?> <small>kWh/mês</small></div>
       <div class="meta"><span><?= count($salas) ?> salas</span><span><?= $totalAparelhosCampus ?> aparelhos</span></div>
     </div>
     <?php foreach ($blocos as $cb => $b): ?>
     <div class="bcard" data-bfiltro="<?= $cb ?>" onclick="clicarBloco(<?= $cb ?>)">
-      <div class="bcard-head"><span class="bdot"></span><h4 title="<?= h($b['nome']) ?>"><?= h($b['nome']) ?></h4></div>
+      <h4 title="<?= h($b['nome']) ?>"><?= h($b['nome']) ?></h4>
       <div class="val"><?= number_format($b['consumo'], 1, ',', '.') ?> <small>kWh/mês</small></div>
       <div class="meta"><span><?= count($b['salas']) ?> salas</span><span><?= $b['qtd_eq'] ?> ar-cond.</span></div>
     </div>
@@ -409,9 +446,9 @@ $plantaEstruturas = [
     </div>
     <div class="grp">
       <div class="legend-bar">
-        <span><i class="dot" style="background:#1e3a5f;border:1px solid #38bdf8"></i>Climatizada</span>
-        <span><i class="dot" style="background:#13171f;border:1px solid #373f4f"></i>Padrão</span>
-        <span><i class="dot" style="background:#0f291e;border:1px solid #4ade80"></i>Selecionada</span>
+        <span class="legend-tag ac">Climatizada</span>
+        <span class="legend-tag">Padrão</span>
+        <span class="legend-tag sel">Selecionada</span>
       </div>
       <button class="btn sec sm" onclick="ajustarZoom(-0.1)" aria-label="Diminuir zoom" style="font-family:var(--font-mono)">-</button>
       <button class="btn sec sm" id="lblZoom" onclick="resetZoom()" style="font-family:var(--font-mono);min-width:52px">100%</button>
@@ -439,7 +476,7 @@ $plantaEstruturas = [
              data-bloco="<?= $cb ?>"
              data-ac="<?= $temAc ? '1' : '0' ?>"
              style="grid-area:<?= $r1 ?>/<?= $c1 ?>/<?= $r2 ?>/<?= $c2 ?>"
-             title="<?= h($idBanco . ' · ' . $blocos[$cb]['nome'] . ($s['consumo'] ? ' · ' . number_format($s['consumo'],1,',','.') . ' kWh/mês' : '')) ?>">
+             title="<?= h($idBanco . ' / ' . $blocos[$cb]['nome'] . ($s['consumo'] ? ' / ' . number_format($s['consumo'],1,',','.') . ' kWh/mês' : '')) ?>">
           <span class="nm"><?= h($rotulo) ?></span>
           <?php if ($sub): ?><span class="sub"><?= h($sub) ?></span><?php endif; ?>
           <?php if ($s['consumo'] > 0): ?>
@@ -462,12 +499,12 @@ $plantaEstruturas = [
   <div id="conteudoPainel"></div>
 </aside>
 
-<!-- MODAL DO VISUALIZADOR 3D DE SALA DE AULA -->
+<!-- MODAL DO VISUALIZADOR 3D DE SALA DE AULA (Spline 3-Pane Studio Layout) -->
 <div id="modal3D" class="modal-3d" role="dialog" aria-modal="true" aria-labelledby="v3dRoomTitle">
   <div class="v3d-topbar">
     <div class="v3d-topbar-left">
-      <span class="v3d-badge">9,0m × 3,0m × 7,0m</span>
       <h3 id="v3dRoomTitle">Sala de Aula</h3>
+      <span class="v3d-badge">9,0m × 3,0m × 7,0m</span>
     </div>
     <div class="v3d-topbar-controls">
       <label for="v3dScenarioSelect" style="margin:0;font-size:.76rem;color:var(--mut)">Fonte de Dados:</label>
@@ -489,6 +526,19 @@ $plantaEstruturas = [
     </div>
   </div>
   <div class="v3d-body">
+    <!-- Coluna Esquerda (Spline Outliner: Inventário + Objetos na Cena) -->
+    <div class="v3d-outliner">
+      <div>
+        <div class="v3d-section-head">Inventário da Sala <span>Tabela BD / 3D</span></div>
+        <div id="v3dSummaryPills" class="v3d-pills"></div>
+      </div>
+      <div>
+        <div class="v3d-section-head">Objetos na Cena <span>X, Y, Z (m)</span></div>
+        <div id="v3dDeviceList" class="v3d-dev-list"></div>
+      </div>
+    </div>
+
+    <!-- Coluna Central (Palco 3D Interativo) -->
     <div class="v3d-stage-wrap">
       <div id="v3dAlerts" class="v3d-alerts"></div>
       <div id="v3dViewport" class="v3d-viewport"></div>
@@ -499,26 +549,12 @@ $plantaEstruturas = [
         <button type="button" class="v3d-dock-btn" data-cam-preset="front">Vista Frontal</button>
         <button type="button" class="v3d-dock-btn" data-cam-preset="top">Planta Superior</button>
       </div>
-
-      <div class="v3d-legend">
-        <span><i class="dot" style="background:#0284c7"></i>TV (Parede Exclusiva)</span>
-        <span><i class="dot" style="background:#f8fafc;border:1px solid #15803d"></i>Ar-Cond. (Parede Exclusiva)</span>
-        <span><i class="dot" style="background:#ea580c"></i>Tomada (&gt;=1,5m)</span>
-        <span><i class="dot" style="background:#1d4ed8"></i>Computador</span>
-        <span><i class="dot" style="background:#94a3b8"></i>Impressora</span>
-      </div>
     </div>
+
+    <!-- Coluna Direita (Spline Property & Transform Inspector) -->
     <div class="v3d-sidebar">
       <div>
-        <div class="v3d-section-head">Inventário da Sala <span>Tabela BD → Cena 3D</span></div>
-        <div id="v3dSummaryPills" class="v3d-pills"></div>
-      </div>
-      <div>
-        <div class="v3d-section-head">Hierarquia da Cena <span>Coordenadas (m)</span></div>
-        <div id="v3dDeviceList" class="v3d-dev-list"></div>
-      </div>
-      <div>
-        <div class="v3d-section-head">Propriedades &amp; Override <span>BR-07</span></div>
+        <div class="v3d-section-head">Inspetor de Propriedades <span>BR-07</span></div>
         <div id="v3dInspectorBody"></div>
       </div>
     </div>
@@ -594,7 +630,7 @@ function gerarTabelaSala(nomeSala, modoCompacto = false) {
             <button class="btn sm" onclick="abrirSala('${esc(nomeSala)}')">Abrir / ${ADMIN ? 'Editar' : 'Detalhes'}</button>
           </span>
         </h4>
-        <div style="color:var(--mut);font-size:.76rem;margin-bottom:8px">${esc(b.nome)} · ${esc(s.andar)} · <b>${kwh(s.consumo)} kWh/mês</b></div>
+        <div style="color:var(--mut);font-size:.76rem;margin-bottom:8px">${esc(b.nome)} / ${esc(s.andar)} / <b>${kwh(s.consumo)} kWh/mês</b></div>
         <table>
           <tr><th>Ponto de Energia</th><th>Quantidade</th></tr>
           ${linhasPontos}
@@ -657,17 +693,18 @@ function abrirSala(nome) {
   document.getElementById('conteudoPainel').innerHTML = `
     <h3 style="margin:0 0 4px;font-size:1.12rem;letter-spacing:-0.02em">${esc(nome)}</h3>
     <div style="color:var(--mut);font-size:.8rem;margin-bottom:10px">
-      <a href="#" onclick="clicarBloco(${s.codigo_bloco});return false">${esc(b.nome)}</a> · ${esc(s.andar)} · ${esc(s.tipo_uso)}
+      <a href="#" onclick="clicarBloco(${s.codigo_bloco});return false">${esc(b.nome)}</a> / ${esc(s.andar)} / ${esc(s.tipo_uso)}
     </div>
 
-    <div class="kpi">
-      <div><b>${kwh(s.consumo)} kWh</b><span>Gasto da Sala/mês</span></div>
-      <div><b>${kwh(b.consumo)} kWh</b><span>Gasto do Bloco/mês</span></div>
-      <div><b>${s.equipamentos.length}</b><span>Aparelhos Ativos</span></div>
+    <div class="prop-ledger">
+      <div class="prop-row"><span>Consumo mensal da sala</span><b>${kwh(s.consumo)} kWh</b></div>
+      <div class="prop-row"><span>Consumo mensal do bloco</span><b>${kwh(b.consumo)} kWh</b></div>
+      <div class="prop-row"><span>Climatizadores alocados</span><b>${s.equipamentos.length}</b></div>
     </div>
 
     <button type="button" class="btn-3d-cta" onclick="abrirVisualizador3D('${esc(nome)}')">
       <span>Visualizar Sala em 3D</span>
+      <small>9,0m × 3,0m × 7,0m</small>
     </button>
 
     ${gerarTabelaSala(nome, false)}
@@ -682,7 +719,7 @@ function abrirSala(nome) {
 // =====================================================================
 function formManutencaoSala(s, b) {
   const optsEq = s.equipamentos.map(e =>
-    `<option value="${e.codigo_equipamento}">#${e.codigo_equipamento} · ${esc(e.tipo)} ${esc(e.marca)} (${Number(e.capacidade_btu||0).toLocaleString('pt-BR')} BTUs)</option>`
+    `<option value="${e.codigo_equipamento}">#${e.codigo_equipamento} ${esc(e.tipo)} ${esc(e.marca)} (${Number(e.capacidade_btu||0).toLocaleString('pt-BR')} BTUs)</option>`
   ).join('');
   const optsTipo = TIPOS_MANUT.map(t =>
     `<option value="${t.codigo_tipo_manutencao}">${esc(t.descricao)} (${esc(t.categoria)})</option>`
@@ -693,7 +730,7 @@ function formManutencaoSala(s, b) {
 
   return `
     <div class="sec-title"><span>Registrar Manutenção nesta Sala</span></div>
-    <form class="fManutSala" style="background:var(--card);padding:12px;border-radius:var(--radius-sm);border:1px solid var(--line)">
+    <form class="fManutSala panel-form">
       <div class="grid2">
         <div><label>Cód. Manutenção</label><input value="#${PROX_MANUT}" readonly></div>
         <div><label>Cód. Equipamento</label><select name="codigo_equipamento" required>${optsEq}</select></div>
@@ -719,7 +756,7 @@ const inp = (n, v, lbl, t='text') =>
 
 function formsAdmin(s) {
   const eqs = s.equipamentos.map(e => `
-    <form class="fEq" style="background:var(--card);padding:10px;border-radius:var(--radius-sm);border:1px solid var(--line);margin-bottom:10px">
+    <form class="fEq panel-form">
       <input type="hidden" name="codigo_equipamento" value="${e.codigo_equipamento}">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <b>Equipamento #${e.codigo_equipamento}</b>
@@ -740,8 +777,8 @@ function formsAdmin(s) {
     </form>`).join('');
 
   return `
-    <div class="sec-title"><span>Administração · Alterar Dados da Sala</span></div>
-    <form id="fSala" style="background:var(--card);padding:12px;border-radius:var(--radius-sm);border:1px solid var(--line)">
+    <div class="sec-title"><span>Alterar Dados da Sala</span><span>Administração</span></div>
+    <form id="fSala" class="panel-form">
       <input type="hidden" name="codigo_sala" value="${s.codigo_sala}">
       <div class="grid2">
         ${PONTOS_CAMPOS.map(([l, k]) => inp(k, s[k], l)).join('')}
@@ -754,11 +791,11 @@ function formsAdmin(s) {
       <p style="margin:10px 0 0"><button class="btn sm">Salvar Alterações da Tabela</button></p>
     </form>
 
-    <div class="sec-title"><span>Administração · Gerenciar Aparelhos da Sala</span></div>
+    <div class="sec-title"><span>Gerenciar Aparelhos da Sala</span><span>Administração</span></div>
     ${eqs}
-    <form class="fEq" style="background:var(--card);padding:12px;border-radius:var(--radius-sm);border:1px dashed var(--line-strong)">
+    <form class="fEq panel-form">
       <input type="hidden" name="codigo_sala" value="${s.codigo_sala}">
-      <b>+ Adicionar Novo Aparelho na Sala</b>
+      <b>Adicionar Novo Aparelho na Sala</b>
       <div class="grid2">
         ${inp('tipo', 'Ar condicionado', 'Tipo')}
         ${inp('marca', '', 'Marca')}
@@ -799,10 +836,10 @@ function clicarBloco(id) {
   document.getElementById('conteudoPainel').innerHTML = `
     <h3 style="margin:0 0 4px">${esc(b.nome)}</h3>
     <div style="color:var(--mut);font-size:.83rem;margin-bottom:12px">${esc(b.descricao)}</div>
-    <div class="kpi">
-      <div><b>${kwh(b.consumo)} kWh</b><span>Gasto Mensal do Bloco</span></div>
-      <div><b>${b.salas.length}</b><span>Salas no Bloco</span></div>
-      <div><b>${b.qtd_eq}</b><span>Aparelhos Ativos</span></div>
+    <div class="prop-ledger">
+      <div class="prop-row"><span>Consumo mensal do bloco</span><b>${kwh(b.consumo)} kWh</b></div>
+      <div class="prop-row"><span>Salas no bloco</span><b>${b.salas.length}</b></div>
+      <div class="prop-row"><span>Climatizadores ativos</span><b>${b.qtd_eq}</b></div>
     </div>
     <div class="sec-title"><span>Salas e Gastos Energéticos do Bloco</span></div>
     <table>
@@ -914,6 +951,6 @@ if (salaInicial && SALAS[salaInicial]) {
   abrirSala(salaInicial);
 }
 </script>
-<script type="module" src="js/3d/classroomApp.js?v=4"></script>
+<script type="module" src="js/3d/classroomApp.js?v=5"></script>
 </body>
 </html>

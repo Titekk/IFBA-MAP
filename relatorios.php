@@ -35,8 +35,8 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatórios de Manutenção · IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=4">
+<title>Relatórios de Manutenção | IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <?= navbar($u, 'relatorios.php') ?>
@@ -62,7 +62,7 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
                   data-sala="<?= h($e['sala']) ?>"
                   data-bloco="<?= h($e['bloco']) ?>"
                   <?= $e['codigo_equipamento'] == $eqSelecionado ? 'selected' : '' ?>>
-            #<?= $e['codigo_equipamento'] ?> · <?= h($e['tipo'].' '.$e['marca']) ?> (<?= number_format((int)$e['capacidade_btu'], 0, ',', '.') ?> BTUs)
+            #<?= $e['codigo_equipamento'] ?> / <?= h($e['tipo'].' '.$e['marca']) ?> (<?= number_format((int)$e['capacidade_btu'], 0, ',', '.') ?> BTUs)
           </option>
         <?php endforeach; ?>
       </select>
@@ -106,7 +106,7 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
       <?php else: ?>
         <select name="codigo_usuario" required>
           <?php foreach ($tecnicos as $t): ?>
-            <option value="<?= $t['codigo_usuario'] ?>"><?= h($t['nome'].' · '.$t['matricula']) ?></option>
+            <option value="<?= $t['codigo_usuario'] ?>"><?= h($t['nome'].' / '.$t['matricula']) ?></option>
           <?php endforeach; ?>
         </select>
       <?php endif; ?>
@@ -142,7 +142,7 @@ $fmt = fn($v) => $v === null ? 'Não identificável' : 'R$ ' . number_format((fl
     <tr>
       <td><b>#<?= $r['codigo_manutencao'] ?></b></td>
       <td><?= date('d/m/Y', strtotime($r['data_manutencao'])) ?></td>
-      <td><b>#<?= $r['codigo_equipamento'] ?></b> · <?= h($r['tipo_eq'].' '.$r['marca']) ?></td>
+      <td><b>#<?= $r['codigo_equipamento'] ?></b> <?= h($r['tipo_eq'].' '.$r['marca']) ?></td>
       <td><a href="index.php?sala=<?= urlencode($r['sala'] ?? '') ?>"><?= h($r['sala'] ?? 'Não identificável') ?></a></td>
       <td><?= h($r['bloco'] ?? 'Não identificável') ?></td>
       <td><?= h($r['tipo']) ?></td>

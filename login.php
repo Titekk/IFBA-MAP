@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entrar · IFBA Campus Ilhéus</title>
-<link rel="stylesheet" href="style.css?v=4">
+<title>Entrar | IFBA Campus Ilhéus</title>
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body class="auth">
 <form class="card" method="post" id="fLogin" style="width:400px">
